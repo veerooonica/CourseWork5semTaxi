@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Клиентская база</title>
+</head>
+
+<head th:insert="blocks/head::head"></head>
+
+<body style="background-color: #997404">
+
+<nav class="navbar navbar-dark navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav"
+     th:insert="blocks/nav :: nav" style="background-color: black">
+</nav>
+
+<section class="py-5">
+    <div class="container py-5">
+        <div class="row mb-4 mb-lg-5">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <h2 class="fw-bold">Изменить профиль</h2>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col">
+                <form class="mb-3" th:each="user : ${users}" th:action="'/user/' + ${user.id} + '/update'" method="post">
+                    <div class="row">
+                        <div class="col">
+                            <input th:value="${user.username}" class="form-control" type="text" placeholder="Логин" disabled>
+                        </div>
+                        <div class="col">
+                            <input th:value="${user.tel}" class="form-control" type="tel" placeholder="Номер телефона" disabled>
+                        </div>
+                        <div class="col">
+                            <input th:value="${user.passport}" class="form-control" type="text" disabled
+                                   placeholder="Серия паспорта">
+                        </div>
+                        <div class="col-auto">
+                            <select name="role" class="form-select">
+                                <option th:each="role : ${roles}" th:value="${role}"
+                                        th:label="${role}" th:selected="${user.role == role}"></option>
+                            </select>
+                        </div>
+                        <div class="col-auto">
+                            <button class="btn btn-primary shadow d-block w-100" type="submit">Изменить</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Авторизация</title>
+</head>
+
+<head th:insert="blocks/head::head"></head>
+
+<body style="background-color: #997404">
+
+<nav class="navbar navbar-dark navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav"
+     th:insert="blocks/nav :: nav" style="background-color: black">
+</nav>
+
+<section class="py-5">
+    <div class="container py-5">
+        <div class="row mb-4 mb-lg-5">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <h2 class="fw-bold">Авторизация</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+                <div th:if="${param.error}" class="alert alert-warning d-flex justify-content-center" role="alert">
+                    <strong>Некорректный ввод логина или пароля!</strong>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6 col-xl-4">
+                <div class="card">
+                    <div class="card-body text-center d-flex flex-column align-items-center" style="background-color: black">
+                        <form method="post">
+                            <div class="mb-3">
+                                <input class="form-control" type="text" name="username" placeholder="Логин">
+                            </div>
+                            <div class="mb-3">
+                                <input class="form-control" type="password" name="password" placeholder="Пароль">
+                            </div>
+                            <div class="mb-3">
+                                <button class="btn btn-primary shadow d-block w-100" type="submit">Авторизация</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+</body>
+
+</html>

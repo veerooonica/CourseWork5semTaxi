@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Мои заказы</title>
+</head>
+
+<head th:insert="blocks/head::head"></head>
+
+<body style="background-color: #997404">
+
+<nav class="navbar navbar-dark navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav"
+     th:insert="blocks/nav :: nav" style="background-color: black">
+</nav>
+
+<section class="py-5">
+    <div class="container py-5">
+        <form th:if="${role == 'NOT'}" action="/search" method="post" style="margin-bottom: 50px;">
+            <div class="row mx-auto" style="/*max-width: 700px;*/">
+                <div class="col">
+                    <input class="form-control btn" type="text" name="search" placeholder="Введите серию паспорта"
+                           style="max-width: 100%; width: 100%;">
+                </div>
+                <div class="col" style="width: 200px; max-width: 200px;">
+                    <button class="btn btn-info shadow d-block w-100" type="submit">Поиск</button>
+                </div>
+            </div>
+        </form>
+        <div class="row mx-auto">
+            <div class="col-6 mb-3" th:each="reserve : ${reserves}">
+                <div class="row">
+                    <p th:text="${reserve.description + ' : ' + reserve.passport}"
+                       class="btn btn-light text-start shadow d-block w-100"></p>
+                </div>
+                <div class="row">
+                    <a class="btn btn-warning shadow d-block w-100" role="button"
+                       th:href="'/reserve/cancel/' + ${reserve.id} + '/' + ${reserve.passport}">Отказаться</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+</body>
+
+</html>

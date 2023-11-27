@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Поездки</title>
+</head>
+
+<head th:insert="blocks/head::head"></head>
+
+<body style="background-color: #997404">
+
+<nav class="navbar navbar-dark navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav"
+     th:insert="blocks/nav :: nav" style="background-color: black">
+</nav>
+
+<section class="py-5">
+    <div class="container py-5">
+        <div class="row mb-4 mb-lg-5">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <h2 class="fw-bold">Поездки</h2>
+            </div>
+        </div>
+        <div  class="row mx-auto">
+            <div th:each="route : ${routes}" class="col-6 mb-3">
+                <a th:text="${route.begin} + ' - ' + ${route.end}" class="btn btn-dark text-start shadow d-block w-100"
+                   role="button" th:href="'/route/' + ${route.id}"></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+</body>
+
+</html>

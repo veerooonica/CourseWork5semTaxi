@@ -1,0 +1,22 @@
+<div th:fragment="nav" class="container">
+    <a class="navbar-brand d-flex align-items-center" href="/">
+        <span>TAXI</span>
+    </a>
+    <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
+        <span class="visually-hidden">Toggle navigation</span>
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navcol-1">
+        <ul class="navbar-nav mx-auto">
+            <li th:if="${role == 'NOT'}" class="nav-item"><a class="nav-link" href="/reg">Регистрация</a></li>
+            <li th:if="${role == 'Водитель'}" class="nav-item"><a class="nav-link" href="/route_add">Добавить</a></li>
+            <li class="nav-item"><a class="nav-link" href="/index">Поездки</a></li>
+            <li th:if="${role != 'NOT'}" class="nav-item"><a class="nav-link" href="/profile">Контактные данные</a></li>
+            <li class="nav-item"><a class="nav-link" href="/rules">Политика сервиса такси</a></li>
+            <li th:if="${role == 'Водитель'}" class="nav-item"><a class="nav-link" href="/profiles">Клиентская база</a></li>
+            <li class="nav-item"><a class="nav-link" href="/cart">Мои заказы</a></li>
+        </ul>
+        <a th:if="${role == 'NOT'}" class="btn btn-primary shadow" role="button" href="/login">Войти</a>
+        <a th:if="${role != 'NOT'}" class="btn btn-primary shadow" role="button" href="/logout">Выход</a>
+    </div>
+</div>

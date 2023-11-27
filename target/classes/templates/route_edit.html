@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Изменить поездку</title>
+</head>
+
+<head th:insert="blocks/head::head"></head>
+
+<body style="background-color: #997404">
+
+<nav class="navbar navbar-dark navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav" th:insert="blocks/nav :: nav"></nav>
+
+<section class="py-5">
+    <div class="container py-5">
+        <div class="row mb-5">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <h2 class="fw-bold">Изменить поездку</h2>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6 col-xl-4">
+                <div>
+                    <form th:action="'/route/' + ${route.id} + '/edit'" class="p-3 p-xl-4" method="post">
+                        <div class="mb-3">
+                            <input th:value="${route.begin}" class="form-control" type="text" name="begin" placeholder="Откуда" required>
+                        </div>
+                        <div class="mb-3">
+                            <input th:value="${route.end}" class="form-control" type="text" name="end" placeholder="Куда" required>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary shadow d-block w-100" type="submit">Изменить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+</body>
+
+</html>

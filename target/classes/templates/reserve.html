@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Заказать</title>
+</head>
+
+<head th:insert="blocks/head::head"></head>
+
+<body style="background-color: #997404">
+
+<nav class="navbar navbar-dark navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav"
+     th:insert="blocks/nav :: nav" style="background-color: black">
+</nav>
+
+<section class="py-5">
+    <div class="container py-5">
+        <div class="row mb-5">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <h2 class="fw-bold">Данные</h2>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6 col-xl-4">
+                <div>
+                    <form th:action="'/route/' + ${route.id} + '/date/' + ${date.id} + '/reserve/no_user'" class="p-3 p-xl-4 text-center" method="post">
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="username" placeholder="Логин" required>
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" type="tel" name="tel" placeholder="Номер телефона"
+                                   pattern="[0-9]{12}" required>
+                            <span>Пример: 123456789012</span>
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="passport" placeholder="Серия паспорта"
+                                   pattern="[A-Z]{2}[0-9]{7}" required>
+                            <span>Пример: AA1234567</span>
+                        </div>
+                        <div class="mb-3">
+                            <button class="btn btn-primary shadow d-block w-100" type="submit">Заказать</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+</body>
+
+</html>

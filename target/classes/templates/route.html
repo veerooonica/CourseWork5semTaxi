@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Поездка</title>
+</head>
+
+<head th:insert="blocks/head::head"></head>
+
+<body style="background-color: #997404">
+
+<nav class="navbar navbar-dark navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav"
+     th:insert="blocks/nav :: nav" style="background-color: black">
+</nav>
+
+<section class="py-5">
+    <div class="container py-5">
+        <div class="row mb-4 mb-lg-5">
+            <div class="col-md-8 col-xl-6 text-center d-md-flex mx-auto justify-content-md-center align-items-md-center">
+                <h2 class="fw-bold">Поездка - <span th:text="${route.begin} + ' - ' + ${route.end}"></span></h2>
+            </div>
+            <div th:if="${role == 'Водитель'}" class="col-md-8 col-xl-6 text-center mx-auto" style="width: 200px;">
+                <a th:href="'/route/' + ${route.id} + '/date_add'" class="btn btn-light btn-sm shadow d-block w-100"
+                   role="button" style="margin: 5px;">
+                    Добавить дату
+                </a>
+                <a th:href="'/route/' + ${route.id} + '/edit'" role="button"
+                   class="btn btn-info btn-sm shadow d-block w-100" style="margin: 5px;">
+                    Редактировать
+                </a>
+                <a th:href="'/route/' + ${route.id} + '/delete'" role="button"
+                   class="btn btn-danger btn-sm shadow d-block w-100" style="margin: 5px;">
+                    Удалить
+                </a>
+            </div>
+        </div>
+        <div th:each="date : ${dates}" class="row mx-auto" style="/*max-width: 700px;*/">
+            <div class="col d-md-flex justify-content-md-center align-items-md-center">
+                <p th:text="${date.date} + ' - ' + ${date.time_begin} + ' - ' + ${date.time_end} + ' - ' + ${date.quantity}"
+                   class="btn btn-light text-start shadow d-block w-100"></p>
+            </div>
+            <div class="col-md-8 col-xl-6 text-center mx-auto" style="width: 200px;">
+                <a th:href="'/route/' + ${route.id} + '/date/' + ${date.id} + '/reserve'" th:if="${date.quantity > 0}"
+                   role="button" class="btn btn-light btn-sm shadow d-block w-100" style="margin: 5px;">
+                    Заказать
+                </a>
+                <a th:href="'/route/' + ${route.id} + '/date/' + ${date.id} + '/edit'" th:if="${role == 'Водитель'}"
+                   role="button" class="btn btn-info btn-sm shadow d-block w-100" style="margin: 5px;">
+                    Редактировать
+                </a>
+                <a th:href="'/route/' + ${route.id} + '/date/' + ${date.id} + '/delete'" th:if="${role == 'Водитель'}"
+                   role="button" class="btn btn-danger btn-sm shadow d-block w-100" style="margin: 5px;">
+                    Удалить
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+</body>
+
+</html>
