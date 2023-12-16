@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class IndexCont extends Attributes {
+public class IndexController extends Attributes {
     @GetMapping("/")
     String index1(Model model) {
         AddAttributesIndex(model);

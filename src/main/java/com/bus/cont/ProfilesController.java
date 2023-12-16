@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class ProfilesCont extends Attributes {
+public class ProfilesController extends Attributes {
 
     @GetMapping("/profiles")
     public String profiles(Model model) {

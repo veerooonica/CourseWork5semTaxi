@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class LoginCont extends Attributes {
+public class LoginController extends Attributes {
 
     @GetMapping("/login")
     String login(Model model) {

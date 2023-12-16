@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Controller
-public class DateCont extends Attributes {
+public class DateController extends Attributes {
 
     @GetMapping("/route/{id}/date_add")
     public String Date(Model model, @PathVariable Long id) {

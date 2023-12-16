@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
-public class RouteCont extends Attributes {
+public class RouteController extends Attributes {
 
     @GetMapping("/route_add")
     public String Route(Model model) {

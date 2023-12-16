@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class ProfileCont extends Attributes {
+public class ProfileController extends Attributes {
 
     @GetMapping("/profile")
     public String profile(Model model) {

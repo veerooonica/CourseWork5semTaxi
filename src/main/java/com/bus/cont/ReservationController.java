@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class ReservationCont extends Attributes {
+public class ReservationController extends Attributes {
 
     @GetMapping("/route/{id_route}/date/{id_date}/reserve")
     public String reserve(Model model, @PathVariable Long id_date, @PathVariable Long id_route) {

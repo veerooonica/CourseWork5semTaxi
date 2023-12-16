@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class RegCont extends Attributes {
+public class RegController extends Attributes {
 
     @GetMapping("/reg")
     public String reg(Model model) {
